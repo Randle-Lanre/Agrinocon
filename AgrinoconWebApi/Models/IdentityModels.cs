@@ -20,6 +20,9 @@ namespace AgrinoconWebApi.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        //examples of dbsets to be added inorder to populate migration
+        //public DbSet<customer> Customers { get; set; }
+        //use add-migartion inital model -force to override the existing model
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
