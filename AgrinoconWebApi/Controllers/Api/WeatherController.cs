@@ -3,21 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Script.Serialization;
+using Microsoft.Ajax.Utilities;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace AgrinoconWebApi.Controllers.Api
 {
     public class WeatherController : ApiController
     {
+        
+
 
         //Get api/weather
         //TODO: add paramenter for user to supply optional location infomation or use default
         [Route("api/getcurrentwether")]
-        public IHttpActionResult GetCurrentWeather()
+        public async Task<IHttpActionResult> GetCurrentWeather(String city = "Dublin", String country = "Ireland")
         {
-            string stringTest = "The WebAPi controller now works";
-            return Ok(stringTest);
+            
+
+            var http = new HttpClient();
+
+            var response = await http.GetAsync(fetchWeatherInformation);
+
+
+            var content = await response.Content.ReadAsStringAsync();
+            JObject json = JObject.Parse(content);
+
+
+            return Ok(json);
+
         }
+
 
         //TODO:add authorization
         [HttpPost]
