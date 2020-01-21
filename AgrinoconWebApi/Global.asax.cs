@@ -8,6 +8,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using AgrinoconWebApi.App_Start;
 using AgrinoconWebApi.Migrations;
+using AutoMapper;
 
 namespace AgrinoconWebApi
 {
@@ -15,6 +16,7 @@ namespace AgrinoconWebApi
     {
         protected void Application_Start()
         {
+            Mapper.Initialize(c => c.AddProfile<MappingProfile>());
             //register webapi routing config with app start
             GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
