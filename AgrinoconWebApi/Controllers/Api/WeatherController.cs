@@ -22,7 +22,8 @@ namespace AgrinoconWebApi.Controllers.Api
         [Route("api/getcurrentwether")]
         public async Task<IHttpActionResult> GetCurrentWeather(String city = "Dublin", String country = "Ireland")
         {
-            
+            var fetchWeatherInformation =
+                $"https://api.weatherbit.io/v2.0/current?city={city}&country={country}&key=641b68d48f654b0b874686e073372c24";
 
             var http = new HttpClient();
 
