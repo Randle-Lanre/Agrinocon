@@ -1,9 +1,10 @@
 ## Agrinocon 
 
 
-###Agrinocon planting solution
+### Agrinocon planting solution
 
-**Build Status**  [![Build Status](https://dev.azure.com/KRANDLE1/Agrinocon/_apis/build/status/Randle-Lanre.Agrinocon?branchName=master)](https://dev.azure.com/KRANDLE1/Agrinocon/_build/latest?definitionId=1&branchName=master)
+**Build Status**  
+[![Build Status](https://dev.azure.com/KRANDLE1/Agrinocon/_apis/build/status/Randle-Lanre.Agrinocon?branchName=master)](https://dev.azure.com/KRANDLE1/Agrinocon/_build/latest?definitionId=1&branchName=master)
 
 
 > Agricaon helps individuals new to the agricultural section better gain an insight
