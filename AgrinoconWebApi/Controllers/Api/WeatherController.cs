@@ -14,18 +14,20 @@ namespace AgrinoconWebApi.Controllers.Api
 {
     public class WeatherController : ApiController
     {
-        
 
 
+        static HttpClient http = new HttpClient();
         //Get api/weather
         //TODO: add paramenter for user to supply optional location infomation or use default
         [Route("api/getcurrentwether")]
         public async Task<IHttpActionResult> GetCurrentWeather(String city = "Dublin", String country = "Ireland")
         {
+            var getApiKey = Environment.GetEnvironmentVariable("WEATHERAPIKEY");
+            
             var fetchWeatherInformation =
-                $"https://api.weatherbit.io/v2.0/current?city={city}&country={country}&key=641b68d48f654b0b874686e073372c24";
+                $"https://api.weatherbit.io/v2.0/current?city={city}&country={country}&key={getApiKey}";
 
-            var http = new HttpClient();
+            
 
             var response = await http.GetAsync(fetchWeatherInformation);
 
