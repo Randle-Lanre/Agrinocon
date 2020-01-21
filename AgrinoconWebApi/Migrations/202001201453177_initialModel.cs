@@ -8,6 +8,33 @@ namespace AgrinoconWebApi.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Customers",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        CustomerName = c.String(nullable: false, maxLength: 255),
+                        WeatherInformationId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.WeatherInformations", t => t.WeatherInformationId, cascadeDelete: true)
+                .Index(t => t.WeatherInformationId);
+            
+            CreateTable(
+                "dbo.WeatherInformations",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Description = c.String(),
+                        LastSpecifiedTime = c.DateTime(nullable: false),
+                        Temperature = c.Single(nullable: false),
+                        WindSpeed = c.Single(nullable: false),
+                        Sunset = c.String(),
+                        Sunrise = c.String(),
+                        CountryCode = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -83,17 +110,21 @@ namespace AgrinoconWebApi.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Customers", "WeatherInformationId", "dbo.WeatherInformations");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Customers", new[] { "WeatherInformationId" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.WeatherInformations");
+            DropTable("dbo.Customers");
         }
     }
 }
