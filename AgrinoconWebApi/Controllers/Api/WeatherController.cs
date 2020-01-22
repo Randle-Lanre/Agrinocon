@@ -69,9 +69,7 @@ namespace AgrinoconWebApi.Controllers.Api
 
             return Created(new Uri(Request.RequestUri + "/" + weather.Id), weatherInformationDto);
 
-            //string stringtest = "posted";
-            //return Ok(stringtest);
-            //return Created(new Uri(Request.RequestUri + "/" +), )
+
         }
 
         //TODO:add authorization
@@ -92,9 +90,7 @@ namespace AgrinoconWebApi.Controllers.Api
             _context.SaveChanges();
             return Ok();
 
-            //string stringtest = "Put successful";
 
-            //return Ok(stringtest);
         }
 
         //TODO:add authorization with specified roles
