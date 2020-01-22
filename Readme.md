@@ -20,8 +20,8 @@ __some of the proposeed features include__
 
 - [x] Show weather information at user's specified location
 
-~~ - [ ] enable users to save weather information to their profile ~~
-    ~~ which can be retrived at anytime **(saved weather information for a period of time)** ~~
+~~- [ ] enable users to save weather information to their profile~~
+    ~~which can be retrived at anytime **(saved weather information for a period of time)**~~
 
 - [ ] customers/users can delete this information in the near feature 
 
